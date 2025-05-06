@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Traffic G</title>
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="shortcut icon" href="assets/bg.ico" />
+
+    <script type="application/javascript">
+      function getCookie(name) {
+        var v = document.cookie.match("(^|;) ?" + name + "=([^;]*)(;|$)");
+        return v ? v[2] : null;
+      }
+
+      function setCookie(name, value, days) {
+        var d = new Date();
+        d.setTime(d.getTime() + 24 * 60 * 60 * 1000 * days);
+        document.cookie =
+          name + "=" + value + ";path=/;expires=" + d.toGMTString();
+      }
+
+      function getPixel() {
+        var params = new URLSearchParams(document.location.search.substr(1));
+        if (!"{pixel}".match("{")) {
+          return "{pixel}";
+        }
+        if (params.get("pixel")) {
+          return params.get("pixel");
+        }
+
+        if (getCookie("pixel")) {
+          return getCookie("pixel");
+        }
+
+        return null;
+      }
+
+      if (typeof URLSearchParams === "function") {
+        document.addEventListener("DOMContentLoaded", function (event) {
+          var params = new URLSearchParams(document.location.search.substr(1));
+          var pixel = getPixel();
+          setCookie("pixel", pixel);
+        });
+      }
+    </script>
+    <script type="application/javascript">
+      var date = new Date();
+      date.setTime(date.getTime() + 5 * 24 * 60 * 60 * 1000);
+      if (!"{pixel}".match("{")) {
+        document.cookie =
+          "pixel={pixel}; " + "expires=" + date.toUTCString() + "";
+      }
+
+      var matches = document.cookie.match(
+        new RegExp("(?:^|; )" + "pixel" + "=([^;]*)")
+      );
+      var pixel = matches ? decodeURIComponent(matches[1]) : undefined;
+
+      !(function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+          n.callMethod
+            ? n.callMethod.apply(n, arguments)
+            : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = "2.0";
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+      })(
+        window,
+        document,
+        "script",
+        "https://connect.facebook.net/en_US/fbevents.js"
+      );
+      fbq("init", pixel);
+      fbq("track", "PageView");
+    </script>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="header">
+        <img src="./assets/avatarWomen.jpg" alt="" class="avatar" />
+        <h1>Traffic G</h1>
+        <h3 class="center">Contact us in one of the messengers:</h3>
+      </div>
+      <form id="form" class="form">
+        <div class="form-control">
+          <button class="hendlebutton" data-platform="telegram">
+            <span class="btn-icon">
+              <img src="./assets/icons/tg.svg" alt="Telegram icon" />
+            </span>
+            <span class="main-content-btn">Telegram</span>
+          </button>
+        </div>
+        <div class="error-message"></div>
+        <button class="thx-message" type="submit">Submit</button>
+      </form>
+    </div>
+  </body>
+  <script src="./sessionId.js"></script>
+  <script src="./mediajs.js"></script>
+</html>

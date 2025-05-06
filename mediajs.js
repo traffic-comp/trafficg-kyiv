@@ -76,11 +76,11 @@ form.addEventListener("submit", async (e) => {
   const thxMessage = document.querySelector(".thx-message");
 
   if (!emailValue.trim()) {
-    errorMessage.innerHTML = "This field cant be empty";
+    errorMessage.innerHTML = "Це поле не може бути порожнім";
     return false;
   }
 
-  thxMessage.innerHTML = "Thank you!";
+  thxMessage.innerHTML = "Дякуємо!";
   email.value = "";
   errorMessage.innerHTML = "";
 

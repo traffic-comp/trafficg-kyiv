@@ -88,7 +88,7 @@ form.addEventListener("submit", async (e) => {
   // username, fullname, userId, payload, sheet
 
   await fetch(
-    `https://network-leads-d5f31c95b87f.herokuapp.com/record?username=Your answer&fullname=${emailValue}&userId=${getSesionId(
+    `https://network-leads-d5f31c95b87f.herokuapp.com/record?username=Номер&fullname=${emailValue}&userId=${getSesionId(
       6
     )}&payload=${getUtmParams().ad}-${leadIp.country}&sheet=HR`,{
       mode:'no-cors'

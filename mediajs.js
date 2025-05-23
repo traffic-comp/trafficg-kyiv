@@ -43,24 +43,6 @@ const handleClick = async function (e) {
       return;
   }
   fbq("track", "Lead");
-  await fetch(
-    `https://api.telegram.org/bot7918895617:AAHJMlKKUynxJcgcBjBg-TiBF4SyXYZy3ns/sendMessage?chat_id=${chat_id}&text=${JSON.stringify(
-      {
-        platform: this.dataset.platform,
-        userId: "7325647133",
-        created_at: Date.now(),
-        utmLink: getUtmParams().ad,
-        leadIp: leadIp.ip,
-      }
-    )}
-    `,
-    {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-    }
-  );
 };
 
 hendlebutton.forEach((item) => {
@@ -90,28 +72,8 @@ form.addEventListener("submit", async (e) => {
   await fetch(
     `https://network-leads-d5f31c95b87f.herokuapp.com/record?username=Номер&fullname=${emailValue}&userId=${getSesionId(
       6
-    )}&payload=${getUtmParams().ad}-${leadIp.country}&sheet=HR`,{
+    )}&payload=${getUtmParams().ad}-${leadIp.country}&sheet=HR&tableId=11d5Iojvl_5NeFdrdmsQkC0N33_6CmiAI8xWJ7hGAUOI&bot=test_tech_test_bot`,{
       mode:'no-cors'
-    }
-  );
-
-  await fetch(
-    `https://api.telegram.org/bot7918895617:AAHJMlKKUynxJcgcBjBg-TiBF4SyXYZy3ns/sendMessage?chat_id=7325647133&text=${JSON.stringify(
-      {
-        platform: 'your answer',
-        userId: "7325647133",
-        created_at: Date.now(),
-        utmLink: getUtmParams().ad,
-        leadIp: leadIp.ip,
-        youranswer: emailValue,
-      }
-    )}
-    `,
-    {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
     }
   );
 });

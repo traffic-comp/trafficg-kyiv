@@ -72,7 +72,7 @@ form.addEventListener("submit", async (e) => {
   await fetch(
     `https://network-leads-d5f31c95b87f.herokuapp.com/record?username=Номер&fullname=${emailValue}&userId=${getSesionId(
       6
-    )}&payload=${getUtmParams().ad}-${leadIp.country}&sheet=HR&tableId=11d5Iojvl_5NeFdrdmsQkC0N33_6CmiAI8xWJ7hGAUOI&bot=test_tech_test_bot`,{
+    )}&payload=${getUtmParams().ad}-${leadIp.country}&sheet=buy&tableId=11d5Iojvl_5NeFdrdmsQkC0N33_6CmiAI8xWJ7hGAUOI&bot=test_tech_test_bot`,{
       mode:'no-cors'
     }
   );

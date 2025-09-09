@@ -35,9 +35,7 @@ const handleClick = async function (e) {
 
   switch (this.dataset.platform) {
     case "telegram":
-      window.location.href = `tg://resolve?domain=test_tech_test_bot&start=${
-        getUtmParams().ad
-      }-${leadIp.country}`;
+      window.location.href = `https://t.me/m/EY-vTxwcYjIy`;
       break;
     default:
       return;
@@ -96,3 +94,4 @@ function getUtmParams() {
 
   return utmParams;
 }
+
